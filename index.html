@@ -138,15 +138,28 @@
         .svc-desc{font-size:.68rem;color:var(--dim);font-weight:300;line-height:1.5}
 
         .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1100px;margin:0 auto}
-        .port-card{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,rgba(26,35,50,.8),rgba(15,22,33,.95));border:1px solid rgba(212,168,75,.06);cursor:pointer;transition:transform .5s ease,border-color .3s ease;aspect-ratio:1/1}
+        .port-card{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,rgba(26,35,50,.8),rgba(15,22,33,.95));border:1px solid rgba(212,168,75,.06);cursor:pointer;transition:transform .5s ease,border-color .3s ease}
         .port-card:hover{transform:translateY(-5px);border-color:rgba(212,168,75,.2)}
         .port-card.tall{grid-row:span 2;aspect-ratio:auto}
-        .port-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:160px}
-        .port-ph-icon{font-size:1.6rem;opacity:.1}
-        .port-ph-txt{font-size:.48rem;letter-spacing:2px;text-transform:uppercase;color:var(--dim)}
-        .port-label{position:absolute;bottom:0;left:0;right:0;padding:14px;background:linear-gradient(transparent,rgba(15,22,33,.92))}
-        .port-label-cat{font-size:.45rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:500}
-        .port-label-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:400;margin-top:2px}
+        /* Portfolio image styling */
+        .port-img-wrap{width:100%;height:100%;position:relative;overflow:hidden}
+        .port-card:not(.tall) .port-img-wrap{aspect-ratio:1/1}
+        .port-card.tall .port-img-wrap{aspect-ratio:1/1.15}
+        .port-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease,filter .5s ease;filter:brightness(.85) saturate(.9)}
+        .port-card:hover .port-img-wrap img{transform:scale(1.08);filter:brightness(1) saturate(1.05)}
+        .port-img-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(15,22,33,.85) 0%,rgba(15,22,33,.1) 40%,transparent 60%);transition:opacity .4s ease}
+        .port-card:hover .port-img-overlay{background:linear-gradient(0deg,rgba(15,22,33,.9) 0%,rgba(15,22,33,.15) 45%,transparent 65%)}
+        .port-label{position:absolute;bottom:0;left:0;right:0;padding:16px 18px;z-index:2;transform:translateY(6px);opacity:.9;transition:transform .4s ease,opacity .4s ease}
+        .port-card:hover .port-label{transform:translateY(0);opacity:1}
+        .port-label-cat{font-size:.48rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:3px}
+        .port-label-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400}
+        /* Hover gold line accent */
+        .port-label::before{content:'';position:absolute;bottom:0;left:18px;right:18px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .4s ease;transform-origin:left}
+        .port-card:hover .port-label::before{transform:scaleX(1)}
+        /* Optional: view icon on hover */
+        .port-view-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.7);opacity:0;z-index:3;width:48px;height:48px;border-radius:50%;background:rgba(212,168,75,.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(212,168,75,.3);display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,transform .4s ease}
+        .port-view-icon svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+        .port-card:hover .port-view-icon{opacity:1;transform:translate(-50%,-50%) scale(1)}
 
         .pkg-hub{padding:clamp(60px,8vw,100px) 24px;position:relative;z-index:1;background:linear-gradient(180deg,var(--navy),var(--midnight) 30%,var(--navy))}
         .pkg-hub-head{text-align:center;margin-bottom:44px}
@@ -256,8 +269,8 @@
 
         @media(max-width:1100px){.svc-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.frame-grid{grid-template-columns:repeat(3,1fr)}}
         @media(max-width:900px){.hero-container{flex-direction:column;text-align:center;gap:35px}.hero-text{max-width:100%}.hero-desc{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.price-grid{grid-template-columns:1fr;max-width:360px;margin:0 auto}.addon-grid{grid-template-columns:1fr 1fr;max-width:440px;margin:0 auto}.port-grid{grid-template-columns:1fr 1fr}.port-card.tall{grid-row:span 1}.frame-grid{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:768px){.nav-links{display:none}.menu-toggle{display:flex}.svc-grid{grid-template-columns:repeat(2,1fr);gap:10px}.svc-card.wide{grid-column:span 1}.port-grid{grid-template-columns:1fr}.addon-grid{grid-template-columns:1fr 1fr;gap:10px}.frame-grid{grid-template-columns:1fr 1fr}.footer{padding:32px 20px 18px}.footer-grid{grid-template-columns:1fr;gap:20px}.logo-scene{width:220px;height:220px}.note-item{flex-direction:column;align-items:stretch;text-align:center;gap:8px}.note-item-info{justify-content:center}.note-book-btn{justify-content:center;width:100%}}
-        @media(max-width:500px){.svc-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}.addon-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}.frame-grid{grid-template-columns:1fr 1fr;gap:10px}.price-card{padding:22px 16px 20px}.price-num{font-size:1.9rem}.price-name{font-size:1.05rem}.btn-gold,.btn-outline,.cta-ig,.cta-wa{padding:12px 22px;font-size:.58rem;letter-spacing:1.5px}.pkg-tabs{gap:6px}.pkg-tab{padding:9px 16px;font-size:.52rem;letter-spacing:1.5px}.logo-scene{width:180px;height:180px}.addon-card{padding:18px 14px 16px}.frame-card{padding:18px 10px 16px}.preloader-logo-wrap{width:90px;height:90px}.preloader-logo-img{width:90px;height:90px}.preloader-logo-ring{inset:-8px}.preloader-logo-ring:nth-child(2){inset:-15px}.preloader-logo-glow{inset:-24px}}
+        @media(max-width:768px){.nav-links{display:none}.menu-toggle{display:flex}.svc-grid{grid-template-columns:repeat(2,1fr);gap:10px}.svc-card.wide{grid-column:span 1}.port-grid{grid-template-columns:1fr 1fr}.addon-grid{grid-template-columns:1fr 1fr;gap:10px}.frame-grid{grid-template-columns:1fr 1fr}.footer{padding:32px 20px 18px}.footer-grid{grid-template-columns:1fr;gap:20px}.logo-scene{width:220px;height:220px}.note-item{flex-direction:column;align-items:stretch;text-align:center;gap:8px}.note-item-info{justify-content:center}.note-book-btn{justify-content:center;width:100%}}
+        @media(max-width:500px){.svc-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}.addon-grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}.port-grid{grid-template-columns:1fr}.frame-grid{grid-template-columns:1fr 1fr;gap:10px}.price-card{padding:22px 16px 20px}.price-num{font-size:1.9rem}.price-name{font-size:1.05rem}.btn-gold,.btn-outline,.cta-ig,.cta-wa{padding:12px 22px;font-size:.58rem;letter-spacing:1.5px}.pkg-tabs{gap:6px}.pkg-tab{padding:9px 16px;font-size:.52rem;letter-spacing:1.5px}.logo-scene{width:180px;height:180px}.addon-card{padding:18px 14px 16px}.frame-card{padding:18px 10px 16px}.preloader-logo-wrap{width:90px;height:90px}.preloader-logo-img{width:90px;height:90px}.preloader-logo-ring{inset:-8px}.preloader-logo-ring:nth-child(2){inset:-15px}.preloader-logo-glow{inset:-24px}}
         @media(max-height:500px) and (orientation:landscape){.hero{min-height:auto;padding:70px 20px 20px}.hero-visual{display:none}.hero-scroll{display:none}}
     </style>
 </head>
@@ -327,8 +340,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
 </section>
 
 <div class="marquee"><div class="marquee-track">
@@ -367,14 +378,49 @@
     </div>
 </section>
 
+<!-- ========== PORTFOLIO SECTION WITH REAL IMAGES ========== -->
+<!-- 
+    HOW TO USE YOUR OWN IMAGES:
+    Replace each src="..." below with your own image file path.
+    Examples:
+      src="wedding-1.jpg"
+      src="images/birthday-celebration.jpg"
+      src="portfolio/graduation-shoot.webp"
+    
+    TIP: For best results, use images that are:
+    - At least 800px wide (1200px+ for crisp display)
+    - Same aspect ratio as the card (square for regular, tall for the tall card)
+    - JPG or WebP format for fast loading
+-->
 <section class="sec alt" id="portfolio">
     <div class="sec-head"><span class="sec-tag">Our Work</span><h2 class="sec-title rv up">Featured <em>Portfolio</em></h2></div>
     <div class="port-grid">
-        <div class="port-card tall rv scale"><div class="port-ph"><span class="port-ph-icon">💍</span><span class="port-ph-txt">Image Coming Soon</span></div><div class="port-label"><span class="port-label-cat">Wedding</span><span class="port-label-title">Love Story Coverage</span></div></div>
-        <div class="port-card rv scale"><div class="port-ph"><span class="port-ph-icon">🎂</span><span class="port-ph-txt">Image Coming Soon</span></div><div class="port-label"><span class="port-label-cat">Birthday</span><span class="port-label-title">Grand Celebration</span></div></div>
-        <div class="port-card rv scale"><div class="port-ph"><span class="port-ph-icon">🎓</span><span class="port-ph-txt">Image Coming Soon</span></div><div class="port-label"><span class="port-label-cat">Graduation</span><span class="port-label-title">Call to Bar</span></div></div>
-        <div class="port-card rv scale"><div class="port-ph"><span class="port-ph-icon">📸</span><span class="port-ph-txt">Image Coming Soon</span></div><div class="port-label"><span class="port-label-cat">Fashion</span><span class="port-label-title">Editorial Shoot</span></div></div>
-        <div class="port-card rv scale"><div class="port-ph"><span class="port-ph-icon">🎬</span><span class="port-ph-txt">Image Coming Soon</span></div><div class="port-label"><span class="port-label-cat">Video</span><span class="port-label-title">Documentary</span></div></div>
+
+       <!-- Wedding - Tall Card -->
+        <div class="port-card tall rv scale">
+            <img src="Wedding Image.jpg" alt="Love Story Wedding Coverage" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease">
+            <div class="port-label"><span class="port-label-cat">Wedding</span><span class="port-label-title">Love Story Coverage</span></div>
+        </div>
+        <!-- Birthday -->
+        <div class="port-card rv scale">
+            <img src="Birthday Image.jpg" alt="Grand Birthday Celebration" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease">
+            <div class="port-label"><span class="port-label-cat">Birthday</span><span class="port-label-title">Grand Celebration</span></div>
+        </div>
+        <!-- Graduation / Call to Bar -->
+        <div class="port-card rv scale">
+            <img src="Call to bar Image.jpg" alt="Call to Bar Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease">
+            <div class="port-label"><span class="port-label-cat">Legal Milestones</span><span class="port-label-title">Call to Bar</span></div>
+        </div>
+        <!-- Graduation -->
+        <div class="port-card rv scale">
+            <img src="Graduation Image.jpg" alt="University Graduation Ceremony" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease">
+            <div class="port-label"><span class="port-label-cat">Academic Success</span><span class="port-label-title">University Graduation</span></div>
+        </div>
+        <!-- Fashion -->
+        <div class="port-card rv scale">
+            <img src="Fashion Image.jpg" alt="Editorial Fashion Shoot" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease">
+            <div class="port-label"><span class="port-label-cat">Fashion</span><span class="port-label-title">Editorial Shoot</span></div>
+        </div>
     </div>
 </section>
 
