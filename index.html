@@ -16,7 +16,7 @@
             --grd:linear-gradient(135deg,var(--gold),var(--gold-dark));
             --safe-b:env(safe-area-inset-bottom,0px);
         }
-        /* PRELOADER: hide all scrolling */
+        /* PRELOADER: absolutely lock everything */
         html.loading,body.loading{overflow:hidden!important;height:100%!important;position:fixed!important;width:100%!important;touch-action:none!important;-webkit-overflow-scrolling:auto!important}
         html{scrollbar-width:thin;scrollbar-color:var(--gold) var(--midnight)}
         body{font-family:'Montserrat',sans-serif;background:var(--navy);color:var(--warm);overflow-x:hidden;line-height:1.6;-webkit-text-size-adjust:100%;touch-action:manipulation;-webkit-overflow-scrolling:touch}
@@ -60,7 +60,8 @@
         .mobile-menu a{color:var(--warm);text-decoration:none;font-size:1rem;font-weight:400;letter-spacing:4px;text-transform:uppercase;transition:color .2s ease}
         .mobile-menu a:hover,.mobile-menu a.active{color:var(--gold)}
 
-        .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:90px 20px 50px}
+        /* HERO: closer to nav, no scroll indicator */
+        .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:70px;padding-bottom:40px;padding-left:20px;padding-right:20px}
         .hero-bg{position:absolute;inset:0;z-index:0}
         .bg-orb{position:absolute;border-radius:50%;will-change:transform}
         .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,75,.18),transparent 70%);top:-18%;right:-12%;animation:orbFloat 18s ease-in-out infinite}
@@ -70,21 +71,21 @@
         .hero-container{position:relative;z-index:10;display:flex;align-items:center;justify-content:center;gap:36px;max-width:1200px;width:100%}
         .hero-text{flex:1;min-width:0;max-width:520px;opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
         .hero-text.visible{opacity:1;transform:translateY(0)}
-        .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(212,168,75,.15);border-radius:50px;margin-bottom:18px}
-        .hero-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:dotPulse 2s ease-in-out infinite}
+        .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid rgba(212,168,75,.15);border-radius:50px;margin-bottom:20px}
+        .hero-tag-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:dotPulse 2s ease-in-out infinite}
         @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.5)}}
-        .hero-tag span{font-size:.5rem;font-weight:500;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold)}
-        .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5.5vw,4.5rem);font-weight:300;line-height:1.08;letter-spacing:-1px;margin-bottom:14px}
+        .hero-tag span{font-size:.6rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+        .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6.5vw,5rem);font-weight:300;line-height:1.05;letter-spacing:-1px;margin-bottom:18px}
         .title-accent{color:var(--gold);font-style:italic}
-        .hero-desc{font-size:.85rem;line-height:1.7;color:var(--muted);margin-bottom:20px;font-weight:300}
-        .hero-buttons{display:flex;gap:10px;flex-wrap:wrap}
-        .btn-gold{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:var(--grd);color:var(--navy);text-decoration:none;font-size:.65rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border:none;border-radius:60px;cursor:pointer;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 10px 30px rgba(212,168,75,.25);white-space:nowrap;font-family:inherit}
+        .hero-desc{font-size:clamp(.95rem,1.8vw,1.05rem);line-height:1.7;color:var(--muted);margin-bottom:24px;font-weight:300}
+        .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+        .btn-gold{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:var(--grd);color:var(--navy);text-decoration:none;font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border:none;border-radius:60px;cursor:pointer;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 10px 30px rgba(212,168,75,.25);white-space:nowrap;font-family:inherit}
         .btn-gold:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(212,168,75,.4)}
-        .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:transparent;color:var(--warm);text-decoration:none;font-size:.65rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);border-radius:60px;cursor:pointer;transition:all .3s ease;white-space:nowrap;font-family:inherit}
+        .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:transparent;color:var(--warm);text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);border-radius:60px;cursor:pointer;transition:all .3s ease;white-space:nowrap;font-family:inherit}
         .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
         .hero-visual{flex-shrink:0;display:flex;justify-content:center;align-items:center;position:relative;opacity:0;transform:scale(.9);transition:opacity .7s ease .15s,transform .7s ease .15s}
         .hero-visual.visible{opacity:1;transform:scale(1)}
-        .logo-scene{position:relative;width:260px;height:260px;will-change:transform}
+        .logo-scene{position:relative;width:280px;height:280px;will-change:transform}
         .logo-float{width:100%;height:100%;animation:logoFloat 7s ease-in-out infinite}
         @keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
         .logo-aura{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:240px;height:240px;background:radial-gradient(ellipse,rgba(212,168,75,.3),transparent 70%);animation:auraPulse 4s ease-in-out infinite}
@@ -95,12 +96,6 @@
         @keyframes frameRotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
         .sparkle{position:absolute;width:4px;height:4px;background:var(--gold);border-radius:50%;animation:sparkleAnim 4s ease-in-out infinite;z-index:5}
         @keyframes sparkleAnim{0%,100%{opacity:.15;transform:translate(0,0)}50%{opacity:.7;transform:translate(var(--tx),var(--ty))}}
-
-        .hero-scroll{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:heroFadeUp .5s ease 1.4s forwards}
-        @keyframes heroFadeUp{to{opacity:1;transform:translateY(0)}}
-        .hero-scroll span{font-size:.4rem;letter-spacing:4px;text-transform:uppercase;color:var(--dim)}
-        .hero-scroll-line{width:1px;height:22px;background:linear-gradient(var(--gold),transparent);animation:scrollLine 2s ease-in-out infinite}
-        @keyframes scrollLine{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.3);opacity:.15}}
 
         .marquee{padding:12px 0;border-top:1px solid rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.02);overflow:hidden;background:var(--midnight);position:relative;z-index:1}
         .marquee-track{display:flex;width:max-content;animation:marqScroll 50s linear infinite}
@@ -261,7 +256,6 @@
         .footer-bottom{max-width:1100px;margin:0 auto;padding-top:14px;border-top:1px solid rgba(255,255,255,.04);text-align:center}
         .footer-bottom p{color:var(--dim);font-size:.68rem;font-weight:300}
 
-        /* RESPONSIVE BREAKPOINTS */
         @media(max-width:1100px){.svc-grid{grid-template-columns:repeat(3,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.frame-grid{grid-template-columns:repeat(3,1fr)}}
         @media(max-width:900px){.price-grid{grid-template-columns:1fr;max-width:340px;margin:0 auto}.addon-grid{grid-template-columns:1fr 1fr;max-width:420px;margin:0 auto}.port-grid{grid-template-columns:1fr 1fr}.port-card.tall{grid-row:span 1}.frame-grid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:768px){
@@ -276,20 +270,19 @@
             .pkg-hub{padding:clamp(36px,5.5vw,56px) 16px;padding-bottom:calc(clamp(36px,5.5vw,56px) + var(--safe-b))}
             .cta-sec{padding:clamp(36px,5.5vw,56px) 16px;padding-bottom:calc(clamp(36px,5.5vw,56px) + var(--safe-b))}
         }
-        /* MOBILE HERO: side by side, fits screen */
         @media(max-width:680px){
-            .hero{padding:80px 14px 40px;min-height:100dvh;align-items:center}
+            .hero{padding-top:62px;padding-bottom:30px;padding-left:14px;padding-right:14px;min-height:100dvh;align-items:center}
             .hero-container{flex-direction:row !important;text-align:left !important;gap:14px !important;width:100%;max-width:100%}
             .hero-text{max-width:56% !important;flex:1 1 56% !important;min-width:0}
             .hero-visual{flex:0 0 auto !important}
             .logo-scene{width:clamp(120px,30vw,155px) !important;height:clamp(120px,30vw,155px) !important}
-            .hero-tag{margin-bottom:12px;padding:5px 11px}
-            .hero-tag span{font-size:.42rem;letter-spacing:3px}
-            .hero-title{font-size:clamp(1.35rem,5.5vw,2rem);margin-bottom:8px}
-            .hero-desc{font-size:.72rem;line-height:1.6;margin-bottom:14px}
-            .hero-buttons{gap:7px}
-            .btn-gold,.btn-outline{padding:9px 16px;font-size:.55rem;letter-spacing:1.5px}
-            .hero-scroll{bottom:14px}
+            .hero-tag{margin-bottom:14px;padding:6px 12px}
+            .hero-tag span{font-size:.52rem;letter-spacing:3px}
+            .hero-tag-dot{width:5px;height:5px}
+            .hero-title{font-size:clamp(1.6rem,6vw,2.4rem);margin-bottom:12px}
+            .hero-desc{font-size:clamp(.82rem,2vw,.95rem);line-height:1.6;margin-bottom:16px}
+            .hero-buttons{gap:8px}
+            .btn-gold,.btn-outline{padding:11px 18px;font-size:.62rem;letter-spacing:1.5px}
             .sparkle{width:3px;height:3px}
             .sec{padding:clamp(32px,5vw,48px) 14px}
             .pkg-hub{padding:clamp(32px,5vw,48px) 14px;padding-bottom:calc(clamp(32px,5vw,48px) + var(--safe-b))}
@@ -303,11 +296,11 @@
             .hero-container{gap:10px !important}
             .logo-scene{width:clamp(100px,28vw,130px) !important;height:clamp(100px,28vw,130px) !important}
             .hero-text{max-width:60% !important;flex:1 1 60% !important}
-            .hero-title{font-size:clamp(1.2rem,6.5vw,1.7rem)}
-            .hero-desc{font-size:.67rem}
-            .btn-gold,.btn-outline{padding:8px 13px;font-size:.5rem;letter-spacing:1px}
-            .hero-tag{padding:4px 9px}
-            .hero-tag span{font-size:.38rem;letter-spacing:2.5px}
+            .hero-title{font-size:clamp(1.4rem,7vw,1.9rem)}
+            .hero-desc{font-size:clamp(.76rem,2.2vw,.88rem)}
+            .btn-gold,.btn-outline{padding:10px 14px;font-size:.56rem;letter-spacing:1px}
+            .hero-tag{padding:5px 10px}
+            .hero-tag span{font-size:.46rem;letter-spacing:2.5px}
             .sec{padding:clamp(28px,4.5vw,42px) 12px}
             .pkg-hub{padding:clamp(28px,4.5vw,42px) 12px;padding-bottom:calc(clamp(28px,4.5vw,42px) + var(--safe-b))}
             .cta-sec{padding:clamp(28px,4.5vw,42px) 12px;padding-bottom:calc(clamp(28px,4.5vw,42px) + var(--safe-b))}
@@ -317,18 +310,17 @@
             .frame-card{padding:18px 10px 14px}
         }
         @media(max-height:500px) and (orientation:landscape){
-            .hero{min-height:auto;padding:65px 20px 20px}
+            .hero{min-height:auto;padding-top:60px;padding-bottom:20px}
             .hero-visual{display:none}
-            .hero-scroll{display:none}
         }
-        /* Very small height phones */
         @media(max-height:600px) and (max-width:680px){
-            .hero{padding:70px 14px 30px}
+            .hero{padding-top:56px;padding-bottom:20px}
             .logo-scene{width:clamp(90px,25vw,120px) !important;height:clamp(90px,25vw,120px) !important}
-            .hero-tag{margin-bottom:8px;padding:4px 9px}
-            .hero-title{font-size:clamp(1.1rem,5vw,1.5rem);margin-bottom:6px}
-            .hero-desc{font-size:.65rem;margin-bottom:10px;line-height:1.5}
-            .btn-gold,.btn-outline{padding:7px 12px;font-size:.48rem}
+            .hero-tag{margin-bottom:10px;padding:5px 10px}
+            .hero-tag span{font-size:.46rem;letter-spacing:2.5px}
+            .hero-title{font-size:clamp(1.3rem,5.5vw,1.7rem);margin-bottom:8px}
+            .hero-desc{font-size:.76rem;margin-bottom:12px;line-height:1.5}
+            .btn-gold,.btn-outline{padding:9px 14px;font-size:.54rem}
         }
     </style>
 </head>
@@ -399,7 +391,6 @@
             </div>
         </div>
     </div>
-    <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
 </section>
 
 <div class="marquee"><div class="marquee-track">
@@ -496,101 +487,32 @@
             <div class="price-card feat rv up"><div class="price-ribbon">Popular</div><div class="price-tier">Standard</div><h4 class="price-name">"Wrapped With Love"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">7,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Pre-Birthday Indoor Photoshoot</li><li><b>✦</b>4 Hours Coverage</li><li><b>✦</b>70 Edited Photos</li><li><b>✦</b>15 Retouched Photos</li><li><b>✦</b>(2) 3D Wooden Frame 12 × 16</li><li><b>✦</b>2–3 Minutes Highlight Video</li><li><b>✦</b>1 Flash Drive (4GB)</li><li><b>✦</b>All Final Edited Work Included</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Wrapped%20With%20Love%20Birthday%20Package%20-%20Le%207%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
             <div class="price-card rv up"><div class="price-tier">Basic</div><h4 class="price-name">"Cake My Day"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">3,500</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>2 Hours Coverage</li><li><b>✦</b>40 Edited Photos</li><li><b>✦</b>Short Highlight Video</li><li><b>✦</b>Soft Copy Delivery via Phone</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Cake%20My%20Day%20Birthday%20Package%20-%20Le%203%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
         </div>
-        <div class="addon-section">
-            <h4 class="addon-section-title rv up">Birthday <em>Photography</em> Only</h4>
-            <div class="addon-grid">
-                <div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 2,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20Only%20-%201%20Hour%20-%20Le%202%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 3,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20Only%20-%202%20Hours%20-%20Le%203%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 4,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20Only%20-%204%2B%20Hours%20-%20Le%204%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-            </div>
-        </div>
-        <div class="addon-section">
-            <h4 class="addon-section-title rv up">Birthday <em>Videography</em> Only</h4>
-            <div class="addon-grid">
-                <div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 3,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Videography%20Only%20-%201%20Hour%20-%20Le%203%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 4,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Videography%20Only%20-%202%20Hours%20-%20Le%204%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 7,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Videography%20Only%20-%204%2B%20Hours%20-%20Le%207%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-            </div>
-        </div>
+        <div class="addon-section"><h4 class="addon-section-title rv up">Birthday <em>Photography</em> Only</h4><div class="addon-grid"><div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 2,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20Only%20-%201%20Hour%20-%20Le%202%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 3,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20Only%20-%202%20Hours%20-%20Le%203%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 4,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20Only%20-%204%2B%20Hours%20-%20Le%204%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div></div></div>
+        <div class="addon-section"><h4 class="addon-section-title rv up">Birthday <em>Videography</em> Only</h4><div class="addon-grid"><div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 3,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Videography%20Only%20-%201%20Hour%20-%20Le%203%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 4,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Videography%20Only%20-%202%20Hours%20-%20Le%204%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 7,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Videography%20Only%20-%204%2B%20Hours%20-%20Le%207%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div></div></div>
     </div>
 
     <div class="pkg-section" id="pkg-calltobar">
         <div class="pkg-section-head"><div class="sec-tag">For Graduates</div><h3 class="sec-title">Call to Bar <em>Shoot</em></h3><p>Celebrate your legal milestone</p></div>
-        <div class="price-grid" style="grid-template-columns:1fr 1fr;max-width:680px">
-            <div class="price-card rv left"><div class="price-tier">Standard</div><h4 class="price-name">"The Barrister Elegance"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">1,500</span></div><p class="price-sub">Essential coverage</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>7 Indoor photos</li><li><b>✦</b>1 × 12×16 Frame</li><li><b>✦</b>1 Key holder</li><li><b>✦</b>1 Pen</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Barrister%20Elegance%20Package%20-%20Le%201%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-            <div class="price-card feat rv right"><div class="price-ribbon">Best Value</div><div class="price-tier">Premium</div><h4 class="price-name">"The Legal Legacy"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">2,500</span></div><p class="price-sub">Complete experience</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor photos</li><li><b>✦</b>1 × 12×18 3D Wooden Frame</li><li><b>✦</b>1 Clock</li><li><b>✦</b>1 Mug</li><li><b>✦</b>1 Key holder</li><li><b>✦</b>1 Pen</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Legal%20Legacy%20Package%20-%20Le%202%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-        </div>
-        <div class="addon-section">
-            <h4 class="addon-section-title rv up">Call to Bar <em>Individual</em> Options</h4>
-            <div class="addon-grid">
-                <div class="addon-card rv up"><div class="addon-category">Indoor</div><div class="addon-label">Single Indoor Photo</div><div class="addon-price">Le 80</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20a%20Single%20Indoor%20Photo%20(Call%20to%20Bar)%20-%20Le%2080" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Outdoor</div><div class="addon-label">Single Outdoor Photo</div><div class="addon-price">Le 150</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20a%20Single%20Outdoor%20Photo%20(Call%20to%20Bar)%20-%20Le%20150" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Outdoor</div><div class="addon-label">Outdoor 1 Hr · 12 Pics</div><div class="addon-price">Le 1,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Outdoor%201%20Hour%20-%2012%20Pics%20(Call%20to%20Bar)%20-%20Le%201%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Outdoor</div><div class="addon-label">Outdoor 2 Hr · 20 Pics</div><div class="addon-price">Le 2,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Outdoor%202%20Hours%20-%2020%20Pics%20(Call%20to%20Bar)%20-%20Le%202%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Emergency</div><div class="addon-label">5 Emergency Indoor Photos</div><div class="addon-price">Le 400</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%205%20Emergency%20Indoor%20Photos%20(Call%20to%20Bar)%20-%20Le%20400" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Emergency</div><div class="addon-label">5 Emergency Outdoor Photos</div><div class="addon-price">Le 600</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%205%20Emergency%20Outdoor%20Photos%20(Call%20to%20Bar)%20-%20Le%20600" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-            </div>
-        </div>
+        <div class="price-grid" style="grid-template-columns:1fr 1fr;max-width:680px"><div class="price-card rv left"><div class="price-tier">Standard</div><h4 class="price-name">"The Barrister Elegance"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">1,500</span></div><p class="price-sub">Essential coverage</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>7 Indoor photos</li><li><b>✦</b>1 × 12×16 Frame</li><li><b>✦</b>1 Key holder</li><li><b>✦</b>1 Pen</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Barrister%20Elegance%20Package%20-%20Le%201%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div><div class="price-card feat rv right"><div class="price-ribbon">Best Value</div><div class="price-tier">Premium</div><h4 class="price-name">"The Legal Legacy"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">2,500</span></div><p class="price-sub">Complete experience</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor photos</li><li><b>✦</b>1 × 12×18 3D Wooden Frame</li><li><b>✦</b>1 Clock</li><li><b>✦</b>1 Mug</li><li><b>✦</b>1 Key holder</li><li><b>✦</b>1 Pen</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Legal%20Legacy%20Package%20-%20Le%202%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div></div>
+        <div class="addon-section"><h4 class="addon-section-title rv up">Call to Bar <em>Individual</em> Options</h4><div class="addon-grid"><div class="addon-card rv up"><div class="addon-category">Indoor</div><div class="addon-label">Single Indoor Photo</div><div class="addon-price">Le 80</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20a%20Single%20Indoor%20Photo%20(Call%20to%20Bar)%20-%20Le%2080" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Outdoor</div><div class="addon-label">Single Outdoor Photo</div><div class="addon-price">Le 150</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20a%20Single%20Outdoor%20Photo%20(Call%20to%20Bar)%20-%20Le%20150" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Outdoor</div><div class="addon-label">Outdoor 1 Hr · 12 Pics</div><div class="addon-price">Le 1,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Outdoor%201%20Hour%20-%2012%20Pics%20(Call%20to%20Bar)%20-%20Le%201%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Outdoor</div><div class="addon-label">Outdoor 2 Hr · 20 Pics</div><div class="addon-price">Le 2,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Outdoor%202%20Hours%20-%2020%20Pics%20(Call%20to%20Bar)%20-%20Le%202%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Emergency</div><div class="addon-label">5 Emergency Indoor Photos</div><div class="addon-price">Le 400</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%205%20Emergency%20Indoor%20Photos%20(Call%20to%20Bar)%20-%20Le%20400" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Emergency</div><div class="addon-label">5 Emergency Outdoor Photos</div><div class="addon-price">Le 600</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%205%20Emergency%20Outdoor%20Photos%20(Call%20to%20Bar)%20-%20Le%20600" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div></div></div>
     </div>
 
     <div class="pkg-section" id="pkg-graduation">
         <div class="pkg-section-head"><div class="sec-tag">Graduation Day</div><h3 class="sec-title">Graduation <em>Packages</em></h3><p>Make your graduation unforgettable</p></div>
-        <div class="price-grid">
-            <div class="price-card rv up"><div class="price-tier">Basic</div><h4 class="price-name">"Milestone Memories"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">1,500</span></div><p class="price-sub">Celebrate your achievement</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor Pics</li><li><b>✦</b>1 Graduation Makeup</li><li><b>✦</b>1 A3 Size 3D Frame</li><li><b>✦</b>1 Congratulations Cake</li><li><b>✦</b>1 Congratulations Hand Band</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Milestone%20Memories%20Graduation%20Package%20-%20Le%201%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-            <div class="price-card feat rv up"><div class="price-ribbon">Popular</div><div class="price-tier">Standard</div><h4 class="price-name">"Harmony of Accomplishment"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">2,500</span></div><p class="price-sub">A fuller celebration</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor Pics</li><li><b>✦</b>5 Outdoor Pics</li><li><b>✦</b>1 Graduation Makeup</li><li><b>✦</b>1 A3 Size 3D Frame</li><li><b>✦</b>1 Graduation Cake</li><li><b>✦</b>1 Graduation Polo</li><li><b>✦</b>1 Congratulations Hand Band</li><li><b>✦</b>Lunch Treat for 2 @ Chicken Town</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Harmony%20of%20Accomplishment%20Graduation%20Package%20-%20Le%202%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-            <div class="price-card rv up"><div class="price-tier">Premium</div><h4 class="price-name">"Golden Dreams Ensemble"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">4,000</span></div><p class="price-sub">Ultimate graduation experience</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor Pics</li><li><b>✦</b>10 Outdoor Pics</li><li><b>✦</b>5 Outdoor Pics for Lunch</li><li><b>✦</b>1 Graduation Makeup</li><li><b>✦</b>1 A3 Size 3D Frame</li><li><b>✦</b>1 Graduation Cake</li><li><b>✦</b>1 Graduation Polo</li><li><b>✦</b>1 Congratulations Hand Band</li><li><b>✦</b>Lunch Treat for 2 @ Crown Express</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Golden%20Dreams%20Ensemble%20Graduation%20Package%20-%20Le%204%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-        </div>
-        <div class="note-box rv up">
-            <div class="note-head"><span>📖</span> Book Four Days Before Graduation</div>
-            <div class="note-items">
-                <div class="note-item">
-                    <div class="note-item-info"><span class="note-item-icon">📸</span><span class="note-item-text">Normal Indoor Photo</span></div>
-                    <div style="display:flex;align-items:center;gap:12px"><span class="note-item-price">Le 50</span><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20a%20Normal%20Indoor%20Photo%20(Graduation)%20-%20Le%2050" target="_blank" rel="noopener" class="note-book-btn">Book Now →</a></div>
-                </div>
-                <div class="note-item">
-                    <div class="note-item-info"><span class="note-item-icon">🌄</span><span class="note-item-text">Outdoor Photo</span></div>
-                    <div style="display:flex;align-items:center;gap:12px"><span class="note-item-price">Le 100</span><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20an%20Outdoor%20Photo%20(Graduation)%20-%20Le%20100" target="_blank" rel="noopener" class="note-book-btn">Book Now →</a></div>
-                </div>
-            </div>
-        </div>
+        <div class="price-grid"><div class="price-card rv up"><div class="price-tier">Basic</div><h4 class="price-name">"Milestone Memories"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">1,500</span></div><p class="price-sub">Celebrate your achievement</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor Pics</li><li><b>✦</b>1 Graduation Makeup</li><li><b>✦</b>1 A3 Size 3D Frame</li><li><b>✦</b>1 Congratulations Cake</li><li><b>✦</b>1 Congratulations Hand Band</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Milestone%20Memories%20Graduation%20Package%20-%20Le%201%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div><div class="price-card feat rv up"><div class="price-ribbon">Popular</div><div class="price-tier">Standard</div><h4 class="price-name">"Harmony of Accomplishment"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">2,500</span></div><p class="price-sub">A fuller celebration</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor Pics</li><li><b>✦</b>5 Outdoor Pics</li><li><b>✦</b>1 Graduation Makeup</li><li><b>✦</b>1 A3 Size 3D Frame</li><li><b>✦</b>1 Graduation Cake</li><li><b>✦</b>1 Graduation Polo</li><li><b>✦</b>1 Congratulations Hand Band</li><li><b>✦</b>Lunch Treat for 2 @ Chicken Town</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Harmony%20of%20Accomplishment%20Graduation%20Package%20-%20Le%202%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div><div class="price-card rv up"><div class="price-tier">Premium</div><h4 class="price-name">"Golden Dreams Ensemble"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">4,000</span></div><p class="price-sub">Ultimate graduation experience</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>10 Indoor Pics</li><li><b>✦</b>10 Outdoor Pics</li><li><b>✦</b>5 Outdoor Pics for Lunch</li><li><b>✦</b>1 Graduation Makeup</li><li><b>✦</b>1 A3 Size 3D Frame</li><li><b>✦</b>1 Graduation Cake</li><li><b>✦</b>1 Graduation Polo</li><li><b>✦</b>1 Congratulations Hand Band</li><li><b>✦</b>Lunch Treat for 2 @ Crown Express</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Golden%20Dreams%20Ensemble%20Graduation%20Package%20-%20Le%204%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div></div>
+        <div class="note-box rv up"><div class="note-head"><span>📖</span> Book Four Days Before Graduation</div><div class="note-items"><div class="note-item"><div class="note-item-info"><span class="note-item-icon">📸</span><span class="note-item-text">Normal Indoor Photo</span></div><div style="display:flex;align-items:center;gap:12px"><span class="note-item-price">Le 50</span><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20a%20Normal%20Indoor%20Photo%20(Graduation)%20-%20Le%2050" target="_blank" rel="noopener" class="note-book-btn">Book Now →</a></div></div><div class="note-item"><div class="note-item-info"><span class="note-item-icon">🌄</span><span class="note-item-text">Outdoor Photo</span></div><div style="display:flex;align-items:center;gap:12px"><span class="note-item-price">Le 100</span><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20an%20Outdoor%20Photo%20(Graduation)%20-%20Le%20100" target="_blank" rel="noopener" class="note-book-btn">Book Now →</a></div></div></div></div>
     </div>
 
     <div class="pkg-section" id="pkg-corporate">
         <div class="pkg-section-head"><div class="sec-tag">Professional · Reliable · Exceptional</div><h3 class="sec-title">Corporate Event <em>Packages</em></h3><p>Full photography & videography coverage for conferences, seminars & corporate functions</p></div>
-        <div class="price-grid">
-            <div class="price-card rv up"><div class="price-tier">Premium</div><h4 class="price-name">"Premium Coverage"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">10,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>8 Hours Service</li><li><b>✦</b>Professional Photography</li><li><b>✦</b>Professional Videography</li><li><b>✦</b>1 × 8GB USB Drive for Final Work</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Premium%20Corporate%20Package%20-%20Le%2010%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-            <div class="price-card feat rv up"><div class="price-ribbon">Popular</div><div class="price-tier">Standard</div><h4 class="price-name">"Standard Coverage"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">7,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>4 Hours Service</li><li><b>✦</b>Professional Photography</li><li><b>✦</b>Professional Videography</li><li><b>✦</b>1 × 4GB USB Drive for Final Work</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Standard%20Corporate%20Package%20-%20Le%207%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-            <div class="price-card rv up"><div class="price-tier">Normal</div><h4 class="price-name">"Normal Coverage"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">4,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>2 Hours Service</li><li><b>✦</b>Professional Photography</li><li><b>✦</b>Professional Videography</li><li><b>✦</b>Soft Copy via Phone for Final Work</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Normal%20Corporate%20Package%20-%20Le%204%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div>
-        </div>
-        <div class="addon-section">
-            <h4 class="addon-section-title rv up">Corporate <em>Photography</em> Per Hour</h4>
-            <div class="addon-grid">
-                <div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 2,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Photography%20-%201%20Hour%20-%20Le%202%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 3,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Photography%20-%202%20Hours%20-%20Le%203%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 5,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Photography%20-%204%2B%20Hours%20-%20Le%205%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-            </div>
-        </div>
-        <div class="addon-section">
-            <h4 class="addon-section-title rv up">Corporate <em>Videography</em> Per Hour</h4>
-            <div class="addon-grid">
-                <div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 3,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Videography%20-%201%20Hour%20-%20Le%203%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 5,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Videography%20-%202%20Hours%20-%20Le%205%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-                <div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 8,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Videography%20-%204%2B%20Hours%20-%20Le%208%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div>
-            </div>
-        </div>
+        <div class="price-grid"><div class="price-card rv up"><div class="price-tier">Premium</div><h4 class="price-name">"Premium Coverage"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">10,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>8 Hours Service</li><li><b>✦</b>Professional Photography</li><li><b>✦</b>Professional Videography</li><li><b>✦</b>1 × 8GB USB Drive for Final Work</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Premium%20Corporate%20Package%20-%20Le%2010%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div><div class="price-card feat rv up"><div class="price-ribbon">Popular</div><div class="price-tier">Standard</div><h4 class="price-name">"Standard Coverage"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">7,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>4 Hours Service</li><li><b>✦</b>Professional Photography</li><li><b>✦</b>Professional Videography</li><li><b>✦</b>1 × 4GB USB Drive for Final Work</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Standard%20Corporate%20Package%20-%20Le%207%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div><div class="price-card rv up"><div class="price-tier">Normal</div><h4 class="price-name">"Normal Coverage"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">4,000</span></div><p class="price-sub">Photography & Videography</p><div class="price-div"></div><ul class="price-features"><li><b>✦</b>2 Hours Service</li><li><b>✦</b>Professional Photography</li><li><b>✦</b>Professional Videography</li><li><b>✦</b>Soft Copy via Phone for Final Work</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Normal%20Corporate%20Package%20-%20Le%204%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now →</a></div></div>
+        <div class="addon-section"><h4 class="addon-section-title rv up">Corporate <em>Photography</em> Per Hour</h4><div class="addon-grid"><div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 2,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Photography%20-%201%20Hour%20-%20Le%202%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 3,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Photography%20-%202%20Hours%20-%20Le%203%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Photography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 5,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Photography%20-%204%2B%20Hours%20-%20Le%205%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div></div></div>
+        <div class="addon-section"><h4 class="addon-section-title rv up">Corporate <em>Videography</em> Per Hour</h4><div class="addon-grid"><div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">1 Hour Coverage</div><div class="addon-price">Le 3,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Videography%20-%201%20Hour%20-%20Le%203%2C500" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">2 Hours Coverage</div><div class="addon-price">Le 5,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Videography%20-%202%20Hours%20-%20Le%205%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div><div class="addon-card rv up"><div class="addon-category">Videography</div><div class="addon-label">4+ Hours Coverage</div><div class="addon-price">Le 8,000</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Corporate%20Videography%20-%204%2B%20Hours%20-%20Le%208%2C000" target="_blank" rel="noopener" class="addon-btn">Book Now →</a></div></div></div>
     </div>
 
     <div class="pkg-section" id="pkg-frames">
         <div class="pkg-section-head"><div class="sec-tag">Print & Framing</div><h3 class="sec-title">3D Wooden <em>Frames</em></h3><p>Premium quality frames for your cherished memories</p></div>
-        <div class="frame-section">
-            <div class="frame-grid">
-                <div class="frame-card rv up"><div class="frame-size">24 × 36</div><div class="frame-price">Le 1,200</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2024%20x%2036%20-%20Le%201%2C200" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div>
-                <div class="frame-card rv up"><div class="frame-size">16 × 24</div><div class="frame-price">Le 800</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2016%20x%2024%20-%20Le%20800" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div>
-                <div class="frame-card rv up"><div class="frame-size">12 × 18</div><div class="frame-price">Le 350</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2012%20x%2018%20-%20Le%20350" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div>
-                <div class="frame-card rv up"><div class="frame-size">12 × 16</div><div class="frame-price">Le 300</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2012%20x%2016%20-%20Le%20300" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div>
-                <div class="frame-card rv up"><div class="frame-size">12 × 8</div><div class="frame-price">Le 230</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2012%20x%208%20-%20Le%20230" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div>
-            </div>
-        </div>
+        <div class="frame-section"><div class="frame-grid"><div class="frame-card rv up"><div class="frame-size">24 × 36</div><div class="frame-price">Le 1,200</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2024%20x%2036%20-%20Le%201%2C200" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div><div class="frame-card rv up"><div class="frame-size">16 × 24</div><div class="frame-price">Le 800</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2016%20x%2024%20-%20Le%20800" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div><div class="frame-card rv up"><div class="frame-size">12 × 18</div><div class="frame-price">Le 350</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2012%20x%2018%20-%20Le%20350" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div><div class="frame-card rv up"><div class="frame-size">12 × 16</div><div class="frame-price">Le 300</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2012%20x%2016%20-%20Le%20300" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div><div class="frame-card rv up"><div class="frame-size">12 × 8</div><div class="frame-price">Le 230</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20order%20a%203D%20Wooden%20Frame%2012%20x%208%20-%20Le%20230" target="_blank" rel="noopener" class="frame-btn">Book Now →</a></div></div></div>
     </div>
 </section>
 
@@ -619,15 +541,11 @@
 
 <script>
 !function(){
-    /* Lock scroll during preloader */
     var html=document.documentElement,body=document.body;
     html.classList.add('loading');body.classList.add('loading');
-
     window.addEventListener('load',function(){
         setTimeout(function(){
-            var p=document.getElementById('preloader');
-            p.classList.add('hide');
-            /* Unlock scroll AFTER preloader fades out */
+            document.getElementById('preloader').classList.add('hide');
             setTimeout(function(){
                 html.classList.remove('loading');
                 body.classList.remove('loading');
@@ -668,9 +586,7 @@
     document.querySelectorAll('.footer-pkg-link').forEach(function(link){link.addEventListener('click',function(e){var pkg=this.dataset.pkg;if(pkg){e.preventDefault();setTimeout(function(){switchPkg(pkg)},500)}})});
 
     var obs=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-            if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}
-        });
+        entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}});
     },{threshold:0.05,rootMargin:'0px 0px 50px 0px'});
     document.querySelectorAll('.rv,.addon-card,.frame-card,.note-item').forEach(function(el){obs.observe(el)});
 }();
