@@ -232,13 +232,14 @@
         .cta-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.5vw,2.6rem);font-weight:300;line-height:1.1;letter-spacing:-1px;margin-bottom:10px}
         .cta-h2 em{font-style:italic;color:var(--gold)}
         .cta-p{color:var(--muted);font-size:.82rem;font-weight:300;line-height:1.8;margin-bottom:24px}
-        .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-        .cta-ig{padding:12px 24px;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;border:none;border-radius:60px;font-size:.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;box-shadow:0 6px 22px rgba(131,58,180,.2);font-family:inherit}
+        .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:nowrap;align-items:center}
+        .cta-ig,.cta-fb,.cta-wa{display:inline-flex;align-items:center;gap:6px;padding:12px 22px;border:none;border-radius:60px;font-size:.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;font-family:inherit;white-space:nowrap}
+        .cta-ig svg,.cta-wa svg,.cta-fb svg{width:14px;height:14px;fill:#fff;flex-shrink:0}
+        .cta-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff;box-shadow:0 6px 22px rgba(131,58,180,.2)}
         .cta-ig:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(131,58,180,.3)}
-        .cta-wa{padding:12px 24px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:60px;font-size:.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;box-shadow:0 6px 22px rgba(37,211,102,.15);font-family:inherit;display:inline-flex;align-items:center;gap:6px}
+        .cta-wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;box-shadow:0 6px 22px rgba(37,211,102,.15)}
         .cta-wa:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.25)}
-        .cta-wa svg{width:11px;height:11px;fill:#fff}
-        .cta-fb{padding:12px 24px;background:linear-gradient(135deg,#1877F2,#0d5bbf);color:#fff;border:none;border-radius:60px;font-size:.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .3s;box-shadow:0 6px 22px rgba(24,119,242,.2);font-family:inherit;white-space:nowrap}
+        .cta-fb{background:linear-gradient(135deg,#1877F2,#0d5bbf);color:#fff;box-shadow:0 6px 22px rgba(24,119,242,.2)}
         .cta-fb:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(24,119,242,.3)}
 
         .footer{padding:36px 20px calc(18px + var(--safe-b));background:linear-gradient(180deg,var(--navy),var(--midnight));border-top:1px solid rgba(212,168,75,.06);position:relative;z-index:1}
@@ -271,9 +272,7 @@
             .pkg-hub{padding:clamp(36px,5.5vw,56px) 16px;padding-bottom:calc(clamp(36px,5.5vw,56px) + var(--safe-b))}
             .cta-sec{padding:clamp(36px,5.5vw,56px) 16px;padding-bottom:calc(clamp(36px,5.5vw,56px) + var(--safe-b))}
         }
-        @media(max-width:680px){
-            .cta-btns{gap:8px}
-            .cta-ig,.cta-fb,.cta-wa{padding:10px 16px;font-size:.5rem;letter-spacing:1.2px}
+        @media(max-width:680px){            
             .hero{padding-top:58px;padding-bottom:30px;padding-left:14px;padding-right:14px;min-height:auto}
             .hero-container{flex-direction:row !important;text-align:left !important;gap:14px !important;width:100%;max-width:100%}
             .hero-text{max-width:56% !important;flex:1 1 56% !important;min-width:0}
@@ -294,6 +293,8 @@
             .pkg-hub-head{margin-bottom:20px}
             .pkg-section-head{margin-bottom:18px}
             .pkg-tab{padding:9px 18px;font-size:.55rem;letter-spacing:1.5px}
+            .cta-ig,.cta-fb,.cta-wa{padding:10px 14px;font-size:.5rem;letter-spacing:1.2px;gap:5px}
+            .cta-ig svg,.cta-wa svg,.cta-fb svg{width:12px;height:12px}
         }
         @media(max-width:420px){
             .hero-container{gap:10px !important}
@@ -518,16 +519,26 @@
     </div>
 </section>
 
-<section class="cta-sec">
+<section class="cta-sec" id="contact">
     <div class="cta-glow"></div>
     <div class="cta-inner">
         <p class="cta-quote">"Every moment is a golden memory waiting to be captured"</p>
-        <h2 class="cta-h2">Ready to Create <em>Something Beautiful</em>?</h2>
+        <h2 class="cta-h2">Ready to Create Something <em>Beautiful</em>?</h2>
         <p class="cta-p">Let's discuss your vision and bring it to life. Reach out through any of our channels below.</p>
         <div class="cta-btns">
-            <a href="https://www.instagram.com/superiormultimedia2023?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="cta-ig">Follow on Instagram</a>
-            <a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20enquire%20about%20your%20services" target="_blank" rel="noopener" class="cta-wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Chat on WhatsApp</a>
-            <a href="https://www.facebook.com/share/1G3S69hSkk" target="_blank" rel="noopener" class="cta-fb">Follow on Facebook</a>        </div>
+            <a href="https://www.instagram.com/superiormultimedia2023?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="cta-ig">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.088 4.088 0 0 1 1.523.99 4.088 4.088 0 0 1 .99 1.524c.163.46.35 1.26.403 2.428.058 1.267.07 1.647.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.088 4.088 0 0 1-.99 1.523 4.088 4.088 0 0 1-1.524.99c-.46.163-1.26.35-2.428.403-1.267.058-1.647.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.088 4.088 0 0 1-1.523-.99 4.088 4.088 0 0 1-.99-1.524c-.163-.46-.35-1.26-.403-2.428C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43a4.088 4.088 0 0 1 .99-1.523A4.088 4.088 0 0 1 5.15 2.203c.46-.163 1.26-.35 2.428-.403C8.845 2.175 9.225 2.163 12 2.163zM12 0C8.741 0 8.333.014 7.053.072 5.775.131 4.903.333 4.14.63a5.876 5.876 0 0 0-2.126 1.384A5.876 5.876 0 0 0 .63 4.14C.333 4.903.131 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.059 1.277.261 2.149.558 2.912a5.876 5.876 0 0 0 1.384 2.126A5.876 5.876 0 0 0 4.14 23.37c.763.297 1.635.499 2.912.558C8.333 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.059 2.149-.261 2.912-.558a5.876 5.876 0 0 0 2.126-1.384 5.876 5.876 0 0 0 1.384-2.126c.297-.763.499-1.635.558-2.912C23.986 15.668 24 15.259 24 12s-.014-3.668-.072-4.948c-.059-1.277-.261-2.149-.558-2.912a5.876 5.876 0 0 0-1.384-2.126A5.876 5.876 0 0 0 19.86.63C19.097.333 18.225.131 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                Follow on Instagram
+            </a>
+            <a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!" target="_blank" rel="noopener" class="cta-wa">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                Chat on WhatsApp
+            </a>
+            <a href="https://www.facebook.com/share/1G3S69hSkk/" target="_blank" rel="noopener" class="cta-fb">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                Follow on Facebook
+            </a>
+        </div>
     </div>
 </section>
 
