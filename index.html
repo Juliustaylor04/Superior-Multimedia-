@@ -267,8 +267,14 @@
             .addon-grid{grid-template-columns:1fr 1fr;gap:10px}
             .frame-grid{grid-template-columns:1fr 1fr;gap:10px}
             .footer{padding:28px 16px 50px}            
-            .footer-grid{grid-template-columns:1fr;gap:18px}
-            .note-item{flex-direction:column;align-items:stretch;text-align:center;gap:8px}.note-item-info{justify-content:center}.note-book-btn{justify-content:center;width:100%}
+            .footer-grid{grid-template-columns:1fr 1fr 1fr;gap:10px}
+            .footer-grid > :first-child{display:none}
+            .footer-col h4{font-size:.68rem;margin-bottom:8px;letter-spacing:.5px}
+            .footer-col ul{gap:3px}
+            .footer-col li{margin-bottom:2px}
+            .footer-col a{font-size:.58rem}
+            .footer-contact li{font-size:.58rem;margin-bottom:2px;gap:4px;flex-direction:column;align-items:flex-start}
+            .footer-contact .fc-icon{font-size:.7rem;margin-top:0}            .note-item{flex-direction:column;align-items:stretch;text-align:center;gap:8px}.note-item-info{justify-content:center}.note-book-btn{justify-content:center;width:100%}
             .sec{padding:clamp(36px,5.5vw,56px) 16px}
             .pkg-hub{padding:clamp(36px,5.5vw,56px) 16px;padding-bottom:calc(clamp(36px,5.5vw,56px) + var(--safe-b))}
             .cta-sec{padding:clamp(36px,5.5vw,56px) 16px;padding-bottom:calc(clamp(36px,5.5vw,56px) + var(--safe-b))}
