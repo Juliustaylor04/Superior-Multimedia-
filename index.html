@@ -198,7 +198,7 @@
         .price-btn-out{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.06)}
         .price-btn-out:hover{border-color:var(--gold);color:var(--gold)}
 
-        /* ===== HOURLY SERVICES (NOW IN FLEX ROW LIKE SOCIAL BUTTONS) ===== */
+        /* ===== HOURLY SERVICES (DISTINCT MINIMAL DESIGN - INLINE ROW ON MOBILE) ===== */
         .hourly-service-section {
             margin-top: 32px;
             max-width: 1100px;
@@ -222,21 +222,16 @@
             font-style: italic;
             color: var(--gold);
         }
-        /* Flex row, wrap, center - exactly like social media buttons */
         .hourly-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 16px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
         }
         .hourly-card {
-            flex: 0 0 auto;
-            min-width: 130px;
             background: rgba(26, 35, 50, 0.6);
             border: 1px solid rgba(212, 168, 75, 0.1);
             border-radius: 12px;
-            padding: 14px 12px;
+            padding: 18px 12px;
             text-align: center;
             transition: all 0.25s ease;
             opacity: 0;
@@ -274,7 +269,7 @@
             margin-bottom: 8px;
         }
         .hourly-price {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--gold);
             margin: 6px 0 12px;
@@ -302,16 +297,25 @@
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(212, 168, 75, 0.2);
         }
-        @media (max-width: 550px) {
+        /* Force horizontal row on mobile (same line, scroll if needed) */
+        @media (max-width: 768px) {
+            .hourly-grid {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 12px;
+                scrollbar-width: thin;
+                padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch;
+            }
             .hourly-card {
-                min-width: 110px;
-                padding: 12px 8px;
+                flex: 0 0 140px;
+                min-width: 140px;
+                padding: 14px 8px;
             }
-            .hourly-price {
-                font-size: 1rem;
-            }
-            .hourly-label {
-                font-size: 0.65rem;
+            .hourly-service-title {
+                display: block;
+                text-align: center;
             }
         }
 
@@ -601,7 +605,7 @@
         </div>
     </div>
 
-    <!-- BIRTHDAY PACKAGES -->
+    <!-- BIRTHDAY PACKAGES with inline hourly cards (horizontal row on mobile) -->
     <div class="pkg-section" id="pkg-birthday">
         <div class="pkg-section-head"><div class="sec-tag">Celebrate Your Day</div><h3 class="sec-title">Birthday <em>Packages</em></h3><p>From kids' parties to milestone celebrations</p></div>
         <div class="price-grid">
@@ -609,7 +613,7 @@
             <div class="price-card feat rv up"><div class="price-ribbon">Popular</div><div class="price-tier">Standard</div><h4 class="price-name">"Wrapped With Love"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">7,000</span></div><p class="price-sub">Photography &amp; Videography</p><div class="price-div"></div><ul class="price-features"><li><b>&#10022;</b>10 Pre-Birthday Indoor Photoshoot</li><li><b>&#10022;</b>4 Hours Coverage</li><li><b>&#10022;</b>70 Edited Photos</li><li><b>&#10022;</b>15 Retouched Photos</li><li><b>&#10022;</b>(2) 3D Wooden Frame 12 &times; 16</li><li><b>&#10022;</b>2&ndash;3 Minutes Highlight Video</li><li><b>&#10022;</b>1 Flash Drive (4GB)</li><li><b>&#10022;</b>All Final Edited Work Included</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Wrapped%20With%20Love%20Birthday%20Package%20-%20Le%207%2C000" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now &rarr;</a></div>
             <div class="price-card rv up"><div class="price-tier">Basic</div><h4 class="price-name">"Cake My Day"</h4><div class="price-amount"><span class="price-curr">Le</span><span class="price-num">3,500</span></div><p class="price-sub">Photography &amp; Videography</p><div class="price-div"></div><ul class="price-features"><li><b>&#10022;</b>2 Hours Coverage</li><li><b>&#10022;</b>40 Edited Photos</li><li><b>&#10022;</b>Shoot Highlight Video</li><li><b>&#10022;</b>Soft Copy Delivery via Phone</li></ul><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'm%20interested%20in%20the%20Cake%20My%20Day%20Birthday%20Package%20-%20Le%203%2C500" target="_blank" rel="noopener" class="price-btn price-btn-fill">Book Now &rarr;</a></div>
         </div>
-        <!-- PHOTOGRAPHY PER HOUR - flex row inline -->
+        <!-- Photography Per Hour -->
         <div class="hourly-service-section">
             <div class="hourly-service-title">Photography <em>Per Hour</em></div>
             <div class="hourly-grid">
@@ -618,7 +622,7 @@
                 <div class="hourly-card rv up"><div class="hourly-icon">🎥</div><div class="hourly-category">4+ Hours</div><div class="hourly-label">Extended Event</div><div class="hourly-price">Le 4,500</div><a href="https://wa.me/23279227118?text=Hi%20Superior%20Multimedia!%20I'd%20like%20to%20book%20Birthday%20Photography%20(4%2B%20Hours)%20-%20Le%204%2C500" target="_blank" rel="noopener" class="hourly-btn">Book Now →</a></div>
             </div>
         </div>
-        <!-- VIDEOGRAPHY PER HOUR -->
+        <!-- Videography Per Hour -->
         <div class="hourly-service-section">
             <div class="hourly-service-title">Videography <em>Per Hour</em></div>
             <div class="hourly-grid">
@@ -649,7 +653,7 @@
         </div>
     </div>
 
-    <!-- FUNERAL PACKAGES -->
+    <!-- FUNERAL PACKAGES with inline hourly cards -->
     <div class="pkg-section" id="pkg-funeral">
         <div class="pkg-section-head"><div class="sec-tag">Honouring A Life Well Lived</div><h3 class="sec-title">Funeral <em>Coverage</em></h3><p>Dignified photography and videography services to preserve memories forever.</p></div>
         <div class="price-grid">
@@ -675,7 +679,7 @@
         </div>
     </div>
 
-    <!-- CORPORATE PACKAGES -->
+    <!-- CORPORATE PACKAGES with inline hourly cards -->
     <div class="pkg-section" id="pkg-corporate">
         <div class="pkg-section-head"><div class="sec-tag">Business Coverage</div><h3 class="sec-title">Corporate <em>Packages</em></h3><p>Professional coverage for conferences, seminars &amp; corporate events</p></div>
        <div class="price-grid">
